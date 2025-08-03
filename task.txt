@@ -1,0 +1,33 @@
+Task 
+👥 Team Contributions – Module Responsibilities
+🧑‍💼 Anil – Project Setup & Patient Enrolment Module
+Component	Description
+README.md	Project title, overview, GitHub structure
+main.py	App launcher and Tkinter main loop setup
+app/routes/auth.py	Handles registration and login logic
+app/models/patient.py	Defines patient schema: personal info, history, records
+app/gui/register_gui.py	Tkinter form for new patient registration
+database/smartpms.db	Database initialized with patient records
+
+🧑‍💼 Mark – Logic Diagram, Attendance Tracking & Alerts
+Component	Description
+app/routes/attendance.py	Manages check-in process via GUI or future RFID
+app/models/attendance.py	Records timestamps, calculates attendance rate
+utils/email_alerts.py	Sends automated notifications for low attendance
+app/gui/login_gui.py	Login UI for both patient and admin
+config.py	System config file
+
+🧑‍💼 Ronak – Appointment Management System
+Component	Description
+app/routes/appointment.py	Core logic for booking, availability, waitlisting
+app/models/appointment.py	Appointment database schema and queue logic
+app/gui/appointment_gui.py	GUI to select doctor slots and confirm appointments
+tests/	Backend logic and booking validations
+
+🧑‍💼 Sanjana – AI Chatbot & Helpdesk Integration
+Component	Description
+app/routes/chatbot.py	Handles chatbot response requests
+utils/chatbot.py	Integrates NLP/AI logic (Dialogflow or Rasa)
+app/gui/chatbot_gui.py	Tkinter interface for chatbot communication
+app/routes/appointment.py	Includes support for mental health booking routes
+Future Extension	Ticketing system for extended helpdesk support
