@@ -142,3 +142,23 @@ SENG205-PMS/
 | **Mark**      | Logic diagram, system flow design             |
 | **Ronak**     | Implementation plan, backend architecture     |
 | **Sanjana**   | Feature requirements, chatbot functionality   |
+
+
+## License
+
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+## © Copyright
+
+© 2025 Anil, Mark, Ronak, Sanjana. All rights reserved.
+
+This software and its associated documentation files are the intellectual property of the authors listed above.
+Unauthorized use, reproduction, or distribution is strictly prohibited without written permission.
+
+## Authors
+
+- [Anil](https://github.com/anilH3inso)
+- [Mark](https://github.com/K240808)
+- [Ronak](https://github.com/coderdevi1)
+- [Sanjana]()
+
