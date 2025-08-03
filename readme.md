@@ -48,12 +48,42 @@ This project is developed as part of **SENG205 (T2 2025)** for **Kent Institute 
 
 ## 🗃️ Modules Breakdown
 
-- `app/` – Python backend logic (Flask routes)  
-- `templates/` – Frontend UI pages (registration, dashboard, booking)  
-- `database/` – SQL schema scripts and seed data  
-- `static/` – CSS, JavaScript, and assets  
-- `rfid/` – RFID scanner Python scripts (optional)  
-- `chatbot/` – Intent and response logic for the AI assistant  
+📌 1. Patient Enrolment
+✅ app/routes/auth.py – Handles registration/login.
+
+✅ app/models/patient.py – Stores personal details, treatment history, and disciplinary records.
+
+✅ database/smartpms.db – Centralized SQL database.
+
+📌 2. Appointment & Management
+✅ app/routes/appointment.py – For viewing doctor availability, booking, waitlists.
+
+✅ app/models/appointment.py – Stores appointment logic and waitlist automation.
+
+📌 3. Tracking & Monitoring
+✅ app/routes/attendance.py – Check-ins via online or hardware integrations.
+
+✅ app/models/attendance.py – Logs timestamps, calculates attendance rates.
+
+✅ utils/email_alerts.py – Can be used for sending low attendance notifications.
+
+📌 4. Patient Support & Helpdesk System
+✅ app/routes/chatbot.py – For AI-powered chatbot responses.
+
+✅ utils/chatbot.py – NLP or AI model integration logic.
+
+✅ Future extension possible for a ticketing system for advanced support.
+
+✅ Appointment routing for mental health & wellbeing is supported in appointment.py.
+
+🔐 Additional Requirements Met
+Requirement	Met in Structure?
+✅ Scalable & modular design	Yes – separated by domain in /routes/ and /models/
+✅ Secure access (login, .env)	Yes – has auth.py and .env file handling
+✅ Database integration	Yes – via SQLAlchemy or SQLite file
+✅ AI integration (chatbot)	Yes – modular AI support in utils/
+✅ Config separation	Yes – config.py and instance/config.py
+✅ Testing support	Yes – /tests/ folder for unit/integration testing
 
 ---
 
