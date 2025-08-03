@@ -47,7 +47,7 @@ The **Smart Patient Management System (PMS)** is a secure and scalable desktop a
 ---
 
 ## 🗂️ Project Structure
----
+```plaintext
 SENG205-PMS/
 ├── app/
 │ ├── gui/
@@ -75,7 +75,7 @@ SENG205-PMS/
 ├── .env
 ├── requirements.txt
 └── README.md
----
+```
 
 ---
 
