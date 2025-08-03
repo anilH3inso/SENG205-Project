@@ -1,59 +1,67 @@
-🏥 Smart Patient Management System (PMS)
-📌 A Centralized Digital Health Solution for Pakenham Hospital
-Built with Python and SQL, powered by AI & automation.
+# 🏥 Smart Patient Management System (PMS)
 
-📖 Overview
-The Smart Patient Management System (PMS) is an integrated platform designed to digitalize and streamline patient treatment processes for hospitals and healthcare facilities. This system enables efficient patient enrollment, real-time appointment scheduling, attendance tracking, and AI-powered support—helping healthcare providers deliver better, faster, and more personalized care.
+📌 A Centralized Digital Health Solution for Pakenham Hospital  
+Built with **Python** and **SQL**, powered by AI & automation.
 
-This project is developed as part of SENG205 (T2 2025) for Kent Institute Australia, with a focus on modern, scalable, and secure healthcare technology.
+---
 
-🎯 Core Features
-🧾 Patient Registration & Records
-Online registration for new and returning patients
+## 📖 Overview
 
-Centralized database for patient data, history, and personal info
+The **Smart Patient Management System (PMS)** is an integrated platform designed to digitalize and streamline patient treatment processes for hospitals and healthcare facilities. This system enables efficient patient enrollment, real-time appointment scheduling, attendance tracking, and AI-powered support—helping healthcare providers deliver better, faster, and more personalized care.
 
-📅 Appointment Scheduling
-Real-time view of doctor availability
+This project is developed as part of **SENG205 (T2 2025)** for **Kent Institute Australia**, with a focus on modern, scalable, and secure healthcare technology.
 
-Intelligent booking, waitlisting, and automatic doctor allocation
+---
 
-⏱️ Attendance Tracking
-Check-in via biometric, RFID, or online interface
+## 🎯 Core Features
 
-Automated alert system for low attendance thresholds
+### 🧾 Patient Registration & Records
+- Online registration for new and returning patients  
+- Centralized database for patient data, history, and personal info  
 
-💬 AI Support & Helpdesk
-AI chatbot for answering FAQs and patient support
+### 📅 Appointment Scheduling
+- Real-time view of doctor availability  
+- Intelligent booking, waitlisting, and automatic doctor allocation  
 
-Ticketing system for mental health and wellbeing appointments
+### ⏱️ Attendance Tracking
+- Check-in via biometric, RFID, or online interface  
+- Automated alert system for low attendance thresholds  
 
-🛠️ Tech Stack
-Layer	Technology
-Backend	Python (Flask)
-Database	MySQL / PostgreSQL
-Frontend	HTML, CSS, Bootstrap (Flask templates)
-AI Chatbot	DialogFlow / Rasa
-Hardware	Raspberry Pi + RFID (optional)
-Deployment	Docker / Heroku / AWS
+### 💬 AI Support & Helpdesk
+- AI chatbot for answering FAQs and patient support  
+- Ticketing system for mental health and wellbeing appointments  
 
-🗃️ Modules Breakdown
-app/: Python backend logic (Flask routes)
+---
 
-templates/: Frontend UI pages (registration, dashboard, booking)
+## 🛠️ Tech Stack
 
-database/: SQL schema scripts and seed data
+| Layer       | Technology             |
+|-------------|------------------------|
+| Backend     | Python (Flask)         |
+| Database    | MySQL / PostgreSQL     |
+| Frontend    | HTML, CSS, Bootstrap   |
+| AI Chatbot  | DialogFlow / Rasa      |
+| Hardware    | Raspberry Pi + RFID    |
+| Deployment  | Docker / Heroku / AWS  |
 
-static/: CSS, JavaScript, and assets
+---
 
-rfid/: RFID scanner Python scripts (optional)
+## 🗃️ Modules Breakdown
 
-chatbot/: Intent and response logic for the AI assistant
+- `app/` – Python backend logic (Flask routes)  
+- `templates/` – Frontend UI pages (registration, dashboard, booking)  
+- `database/` – SQL schema scripts and seed data  
+- `static/` – CSS, JavaScript, and assets  
+- `rfid/` – RFID scanner Python scripts (optional)  
+- `chatbot/` – Intent and response logic for the AI assistant  
 
-👥 Team Contributions
-Member	Responsibility
-Anil	Project Title, Abstract, GitHub Setup
-Mark	Logic Diagram and System Flow
-Ronak	Implementation Strategy, Backend Plan
-Sanjana	Objectives, Feature Requirements
+---
 
+## 👥 Team Contributions
+
+| Member   | Responsibility                              |
+|----------|----------------------------------------------|
+| Anil     | Project Title, Abstract, GitHub Setup        |
+| Mark     | Logic Diagram and System Flow                |
+| Ronak    | Implementation Strategy, Backend Plan        |
+| Sanjana  | Objectives, Feature Requirements             |
