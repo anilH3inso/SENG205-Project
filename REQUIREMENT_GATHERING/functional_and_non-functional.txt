@@ -1,0 +1,26 @@
+
+ID	Requirement Description	MoSCoW
+FR1	The system must allow users (patients, doctors, admins, receptionists) to register and log in with role-based access.	Must Have
+FR2	Patients must be able to book, cancel, and reschedule appointments with doctors.	Must Have
+FR3	Doctors must be able to view patient history, update diagnoses, and record treatment progress.	Must Have
+FR4	Receptionists should be able to manage patient bookings, check-ins, and doctor schedules.	Should Have
+FR5	The system must support real-time tracking of patient attendance using check-in methods (web-based, simulated RFID/biometric).	Must Have
+FR6	An AI chatbot should be available to answer frequently asked questions and escalate unresolved issues to human agents.	Should Have
+FR7	Patients must be able to view treatment progress, past visits, and download prescriptions.	Must Have
+FR8	Admins must be able to manage user accounts, access logs, and generate reports.	Must Have
+FR9	Patients should receive email/SMS reminders for upcoming appointments.	Should Have
+FR10	Doctors could use an e-prescription generator to prescribe medications digitally.	Could Have
+FR11	Patients could schedule mental health and wellbeing consultations via the system.	Could Have
+FR12	The system won’t include real biometric hardware in this version (simulated only).	Won’t Have
+FR13	The system won’t include telehealth/video consultations in this phase.	Won’t Have
+
+🔧 Non-Functional Requirements (NFR)
+These define how the system behaves — its quality attributes.
+ID	Requirement Description	MoSCoW
+NFR1	The system must enforce secure authentication and encrypt sensitive data.	Must Have
+NFR2	The system must be responsive and accessible on desktop and mobile devices.	Must Have
+NFR3	The system should load each page within 2 seconds under standard conditions.	Should Have
+NFR4	The system must ensure 99.9% uptime and availability for hospital operations.	Must Have
+NFR5	The system should comply with Australian privacy and health data protection laws (e.g., My Health Record, Privacy Act).	Should Have
+NFR6	The system could support accessibility features for users with disabilities.	Could Have
+NFR7	The system won’t support multilingual interface in this initial version.	
