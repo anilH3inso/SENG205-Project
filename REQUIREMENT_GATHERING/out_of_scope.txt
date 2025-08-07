@@ -1,0 +1,12 @@
+These features are excluded from this version and may be considered in future phases or releases:
+
+Feature/Module	Reason for Exclusion
+Telehealth/Video Consultations	Requires advanced streaming infrastructure and external APIs
+Mobile App (iOS/Android)	The current phase focuses on a responsive web-based system only
+Real Biometric or RFID Hardware	Only simulated methods will be used for check-ins
+Integration with National EMRs	External health record system (e.g., My Health Record) integration is out of scope
+Third-Party Payment Gateway	No billing or online payment modules will be implemented
+Insurance Claim Processing	Not required for current system scope
+Multilingual Interface	The system will support English only in this phase
+AI Diagnosis or Predictive Analytics	Out of scope for MVP due to data sensitivity and algorithm complexity
+Blockchain-Based Record Storage	Advanced and not necessary for Phase 1 implementation
