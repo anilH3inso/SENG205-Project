@@ -1,0 +1,46 @@
+👤 PATIENT Use Cases
+Use Case ID	Use Case Name	Description
+UC1	Register Account	Patient creates an account with personal info
+UC2	Log In	Patient logs in with email and password
+UC3	Book Appointment	Selects doctor/date/time
+UC4	Cancel or Reschedule	Changes or cancels an appointment
+UC5	Check-in for Appointment	Confirms arrival via web or simulated RFID
+UC6	View Medical History	Views diagnosis and prescriptions
+UC7	View Appointment History	Sees past and upcoming bookings
+UC8	Contact Help Desk	Uses chatbot or opens support ticket
+
+👨‍⚕️ DOCTOR Use Cases
+Use Case ID	Use Case Name	Description
+UC9	Log In	Doctor accesses system securely
+UC10	View Appointments	Sees daily/weekly schedule
+UC11	View Patient Profile	Opens patient info, history
+UC12	Update Treatment Details	Adds diagnosis, notes, prescriptions
+UC13	View Lab Results	(Optional) Reviews uploaded test results
+
+🧍‍♀️ RECEPTIONIST Use Cases
+Use Case ID	Use Case Name	Description
+UC14	Log In	Secure access to receptionist panel
+UC15	View Appointments	Master calendar access
+UC16	Check-in Patient	Marks patient as arrived
+UC17	Assist Booking	Manually books or changes appointments
+
+🧑‍💼 ADMIN Use Cases
+Use Case ID	Use Case Name	Description
+UC18	Log In	Admin system login
+UC19	Manage Users	Add/remove/edit patients/doctors/staff
+UC20	View System Reports	Access analytics and logs
+UC21	Assign Support Tickets	Routes unresolved tickets to support staff
+UC22	Configure System Settings	Notification, hours, access roles
+
+💊 PHARMACIST Use Cases
+Use Case ID	Use Case Name	Description
+UC23	Log In	Access pharmacist panel
+UC24	View Prescriptions	Sees list of prescriptions from doctors
+UC25	Mark as Dispensed	Updates status after medicine given
+
+💰 FINANCIAL OFFICER Use Cases
+Use Case ID	Use Case Name	Description
+UC26	Generate Invoice	Generates billing after appointment
+UC27	Update Payment Status	Marks invoice as paid or pending
+UC28	View Payment Reports	Monthly summary of billing data
+
