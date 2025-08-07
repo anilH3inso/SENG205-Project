@@ -1,0 +1,60 @@
+🔍 High-Level Requirements Elicitation (Detailed)
+1. User Authentication Requirement
+Statement:
+"The system must allow users (patients, doctors, admins, and receptionists) to securely register and log in using role-based authentication."
+
+Component	Details
+Description	The system should provide a secure login/registration interface for all roles with access rights based on user type. Passwords must be hashed and sensitive data encrypted.
+Stakeholders	Patients, Doctors, Admins, Receptionists, IT Team
+Inputs	Username/email, password, role selection (at registration)
+Outputs	Dashboard redirection, session token, role-based interface
+Priority	Must Have
+Dependencies	Database for storing credentials, login/logout API, access control module
+
+2. Appointment Management Requirement
+Statement:
+"The system must enable patients to view doctor availability in real time and book, reschedule, or cancel appointments accordingly."
+
+Component	Details
+Description	Patients should be able to view a doctor’s schedule and interact with appointment slots. Backend should prevent double-booking and manage a waitlist if needed.
+Stakeholders	Patients, Doctors, Receptionists, Admins
+Inputs	Selected date, time, doctor, reason for visit
+Outputs	Appointment confirmation, calendar entry, SMS/email notification
+Priority	Must Have
+Dependencies	Doctor schedule module, appointment database, notification system
+
+3. Patient Attendance Tracking Requirement
+Statement:
+"The system must record patient attendance through check-in methods such as web interface, simulated RFID, or biometric check-in."
+
+Component	Details
+Description	Patients should check in upon arrival via web (e.g., “Check-in” button), or kiosk with simulated RFID or biometric interface. System logs timestamp and method used.
+Stakeholders	Patients, Doctors, Receptionists
+Inputs	Appointment ID, patient ID, check-in method
+Outputs	Attendance log entry, status update on appointment
+Priority	Must Have
+Dependencies	Appointment system, timestamp function, attendance database
+
+4. AI Help Desk Support Requirement
+Statement:
+"The system must provide an AI-powered chatbot to answer frequently asked questions and escalate unresolved issues to a live support agent or ticketing system."
+
+Component	Details
+Description	The chatbot answers common queries (e.g., “How do I book?”), and routes complex or unresolved issues into the support ticket system.
+Stakeholders	Patients, Admins, Support Staff
+Inputs	User questions via chat interface
+Outputs	Automated replies, ticket number (if escalated), or human agent chat
+Priority	Should Have
+Dependencies	NLP engine (e.g., Dialogflow, Rasa), ticket system, admin inbox
+
+5. Treatment Progress Monitoring Requirement
+Statement:
+"The system must allow doctors to update treatment progress, and patients must be able to view their medical history, prescriptions, and follow-up plans in their dashboard."
+
+Component	Details
+Description	Doctors can add/update diagnosis notes, prescriptions, test results, and follow-ups. Patients can view their treatment timeline in a clear format.
+Stakeholders	Doctors, Patients
+Inputs	Doctor notes, prescriptions, diagnosis updates
+Outputs	Patient-side display of history, medication list, treatment progress chart
+Priority	Must Have
+Dependencies	Patient database, doctor dashboard, prescription module
