@@ -1,0 +1,50 @@
+1. Admin
+    • Role: System owner and controller.
+    • Responsibilities:
+        ◦ Manages user accounts and access control.
+        ◦ Oversees system performance and integrity.
+        ◦ Generates usage reports and analytics.
+    • Interest: Ensuring smooth, secure, and efficient operations of the PMS.
+ 2. Doctors
+    • Role: Healthcare providers using the system.
+    • Responsibilities:
+        ◦ Access patient history, appointments, and attendance.
+        ◦ Update treatment records, prescriptions, and notes.
+        ◦ Communicate with patients and reception staff.
+    • Interest: Ease of access to patient data and reduced administrative burden.
+ 3. Patients
+    • Role: End-users receiving medical services.
+    • Responsibilities:
+        ◦ Register and maintain profiles.
+        ◦ Book, reschedule, and cancel appointments.
+        ◦ View treatment progress, prescriptions, and reports.
+        ◦ Access help desk and chatbot support.
+    • Interest: Convenient, transparent, and timely access to healthcare services.
+4. Receptionists
+    • Role: Front desk staff supporting daily operations.
+    • Responsibilities:
+        ◦ Manage patient bookings and check-ins.
+        ◦ Coordinate with doctors for scheduling.
+        ◦ Handle rescheduling, cancellations, and walk-ins.
+    • Interest: Streamlined workflows and reduced manual data entry.
+      
+6. Pharmacists
+    • Role: Dispensing medication and managing pharmacy records.
+    • Responsibilities:
+        ◦ Access prescriptions issued by doctors.
+        ◦ Track and manage medicine inventory.
+    • Interest: Fast access to validated prescriptions and real-time stock visibility.
+
+8. Mental Health Counsellors / Wellbeing Staff
+    • Role: Provide psychological and emotional support.
+    • Responsibilities:
+        ◦ Review mental health consultation requests.
+        ◦ Conduct online or in-person counselling.
+    • Interest: Direct access to relevant patient information and follow-up tracking.
+
+9. Billing and Finance Staff
+    • Role: Handle invoices, insurance, and payments.
+    • Responsibilities:
+        ◦ Generate billing reports and patient invoices.
+        ◦ Process insurance claims.
+    • Interest: Accuracy and automation of billing procedures.
