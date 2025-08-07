@@ -1,0 +1,102 @@
+Purpose: Defines all essential input/output fields across system modules to assist with database schema design and form handling.
+
+📍 1. Patient Registration Fields
+Field Name	Type	Required	Description
+patient_id	Integer	Yes (Auto-generated)	Unique identifier for each patient
+full_name	String	Yes	Patient's legal full name
+date_of_birth	Date	Yes	Date of birth (YYYY-MM-DD)
+email	String	Yes	Used for login and notifications
+phone_number	String	Yes	Contact mobile number
+address	Text	Yes	Residential address
+gender	Enum	Optional	Male/Female/Other
+emergency_contact	String	Optional	Name and phone of emergency contact
+medical_history	Text	Optional	Short summary of existing conditions
+medicare_number	String	Optional	National health identifier
+password_hash	String	Yes	Encrypted password for login
+
+📍 2. Doctor Registration Fields
+Field Name	Type	Required	Description
+doctor_id	Integer	Yes (Auto-generated)	Unique identifier for doctor
+full_name	String	Yes	Doctor’s full name
+email	String	Yes	Used for login
+phone	String	Yes	Contact number
+specialization	String	Yes	Field of medicine (e.g., Cardiology)
+license_number	String	Yes	Medical license verification
+years_experience	Integer	Optional	Total years of clinical experience
+password_hash	String	Yes	Encrypted login password
+
+📍 3. Appointment Fields
+Field Name	Type	Required	Description
+appointment_id	Integer	Yes	Unique ID for appointment
+patient_id	Integer	Yes	Linked to patient
+doctor_id	Integer	Yes	Linked to doctor
+appointment_date	DateTime	Yes	Date and time of the appointment
+reason_for_visit	Text	Optional	Short description from the patient
+status	Enum	Yes	confirmed / cancelled / completed / rescheduled
+booking_time	DateTime	Yes	When the appointment was booked
+
+📍 4. Attendance Fields
+Field Name	Type	Required	Description
+attendance_id	Integer	Yes	Unique ID
+appointment_id	Integer	Yes	Links to appointment
+checkin_time	DateTime	Yes	Timestamp of check-in
+method	Enum	Yes	web / RFID / biometric (simulated)
+status	Enum	Yes	on-time / late / missed
+
+📍 5. Treatment Record Fields
+Field Name	Type	Required	Description
+treatment_id	Integer	Yes	Unique treatment record
+patient_id	Integer	Yes	Link to patient
+doctor_id	Integer	Yes	Doctor who performed/update treatment
+diagnosis	Text	Yes	Diagnosis entered by doctor
+prescription	Text	Optional	Medicines prescribed
+notes	Text	Optional	Additional remarks or follow-up plan
+date_updated	DateTime	Yes	Date of update
+
+📍 6. Support Ticket Fields
+Field Name	Type	Required	Description
+ticket_id	Integer	Yes	Unique ticket number
+patient_id	Integer	Yes	Patient who raised the ticket
+message	Text	Yes	Full description of the issue
+status	Enum	Yes	open / in-progress / resolved
+assigned_to	Integer	Optional	Admin/agent assigned to the ticket
+created_at	DateTime	Yes	Ticket creation time
+
+📍 7. AI Chatbot Log Fields (Optional)
+Field Name	Type	Required	Description
+log_id	Integer	Yes	Unique log ID
+patient_id	Integer	Yes	Who asked the question
+question	Text	Yes	Input provided by the user
+response	Text	Yes	Response from chatbot
+escalated	Boolean	Yes	Was it escalated to human support?
+timestamp	DateTime	Yes	Time of interaction
+
+
+🧍‍♀️ 8. Receptionist Registration Fields
+Field Name	Type	Required	Description
+receptionist_id	Integer	Yes	Unique identifier
+full_name	String	Yes	Name of receptionist
+email	String	Yes	Used for login and contact
+phone	String	Yes	Contact number
+assigned_department	String	Optional	Department or floor assignment
+password_hash	String	Yes	Encrypted password
+
+🟡 Receives limited dashboard access (patient check-in, appointment view).
+
+💊 9. Pharmacist Fields
+Field Name	Type	Required	Description
+pharmacist_id	Integer	Yes	Unique identifier
+full_name	String	Yes	Name of pharmacist
+email	String	Yes	Login and contact email
+phone	String	Optional	Contact number
+license_number	String	Yes	Pharmacy license verification
+password_hash	String	Yes	Login password (encrypted)
+
+
+💰 10. Financial/Billing Officer Fields
+Field Name	Type	Required	Description
+finance_id	Integer	Yes	Unique ID for billing staff
+full_name	String	Yes	Staff name
+email	String	Yes	Login and communication
+phone	String	Optional	Contact number
+password_hash	String	Yes	Encrypted login passwo
