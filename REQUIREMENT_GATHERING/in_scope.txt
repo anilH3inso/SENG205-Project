@@ -1,0 +1,14 @@
+✅ In-Scope Items (What the Project Will Cover)
+These features and components will be developed and delivered as part of this project:
+
+Feature/Module	Description
+User Registration & Login	Secure registration and login for Patients, Doctors, Admins, and Receptionists
+Role-Based Dashboards	Separate dashboards for each user type with role-specific functionality
+Appointment Management	Booking, rescheduling, and canceling appointments with real-time availability
+Attendance Tracking	Check-in system with timestamp logging using web-based methods (simulated biometric/RFID)
+Treatment Progress Monitoring	Doctors can update, and patients can view their treatment history
+AI-Powered Help Desk Chatbot	Chatbot handles common patient queries and escalates complex issues
+Support Ticket System	Manual ticket logging and admin resolution workflow
+Email/SMS Notifications	Alerts for appointment confirmations, reminders, or missed visits
+Admin Controls	Manage users, view logs, and generate reports
+Secure SQL Database Integration	Backend data storage using SQL for all user, appointment, and treatment records
