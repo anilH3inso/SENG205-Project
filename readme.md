@@ -1,3 +1,5 @@
+```plaintext
+
 pip install -r requirements.txt
 python -m care_portal.seed 
 python -m care_portal.app
@@ -9,3 +11,4 @@ Patient	pt@care.local	patient123
 
     
 
+```
