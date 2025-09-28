@@ -80,5 +80,6 @@ This will:
 ---
 
 ## 📜 License  
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=28&duration=2500&pause=700&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=120&lines=Anil+Budthapa;Sanjana+Tanwar;Mark+David;Ronak+Pradhan)](https://git.io/typing-svg)
 
 MIT License © 2025 [anilH3inso](https://github.com/anilH3inso)
