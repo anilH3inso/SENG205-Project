@@ -13,7 +13,7 @@ from pydantic import BaseModel
 
 # ------------------------- Config -------------------------
 HOST = os.getenv("CARE_PARTNER_HOST") or os.getenv("CARE_PORTAL_HOST", "127.0.0.1")
-PORT = int(os.getenv("CARE_PORTAL_PORT", "8001"))
+PORT = int(os.getenv("CARE_PORTAL_PORT", "8000"))
 ROOT = os.getenv("CARE_PORTAL_ROOT", os.getcwd())
 USE_LLM = bool(int(os.getenv("CARE_PORTAL_USE_LLM", "1")))
 LLM_MODEL_PATH = os.getenv("CARE_PORTAL_LLM_PATH", os.path.join(ROOT, "care_portal", "models", "tinyllama.gguf"))
