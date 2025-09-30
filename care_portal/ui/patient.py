@@ -558,76 +558,100 @@ class PatientFrame(BaseFrame):
         self.apply_doctor_filters()
 
     def _resolve_doctor_label(self, doctor_id: int | None) -> str:
-        """Return 'Dr. Full Name (Specialty)'.
-        Works whether doctor_id is Doctor.id or User.id, and caches both keys."""
         if not doctor_id:
             return "Unassigned"
-        if doctor_id in self.doctor_labels:
-            return self.doctor_labels[doctor_id]
 
-        label = f"Doctor#{doctor_id}"
-        with SessionLocal() as db:
-            d = db.get(Doctor, doctor_id)
-            if not d:
-                # Fallback: sometimes Appointment.doctor_id holds the user's id
-                d = db.scalar(select(Doctor).where(Doctor.user_id == doctor_id))
-            if d:
-                u = db.get(User, d.user_id) if d.user_id else None
-                name = (u.full_name or u.email) if u else f"Doctor {d.id}"
-                spec = getattr(d, "specialty", None) or "General"
-                label = f"Dr. {name} ({spec})"
-                # Cache under both the Doctor.id and the original key we were given
-                try:
-                    self.doctor_labels[d.id] = label
-                except Exception:
-                    pass
-        self.doctor_labels[doctor_id] = label
+        label = f"Doctor {doctor_id}"
+        try:
+            with SessionLocal() as db:
+                # 1) Try as Doctor.id first
+                d = db.get(Doctor, doctor_id)
+
+                # 2) If not found, treat it as User.id -> Doctor
+                if not d:
+                    d = db.scalar(select(Doctor).where(Doctor.user_id == doctor_id))
+
+                if d:
+                    u = db.get(User, d.user_id) if d.user_id else None
+                    # Prefer full_name, then email; fallback to Doctor <id>
+                    base = (u.full_name or u.email) if u else f"Doctor {d.id}"
+                    spec = getattr(d, "specialty", None) or "General"
+                    label = f"Dr. {base} ({spec})"
+
+                    # Refresh caches (for both keys) but don't *read* from them next time
+                    try:
+                        self.doctor_labels[d.id] = label
+                        self.doctor_labels[doctor_id] = label
+                    except Exception:
+                        pass
+        except Exception:
+            # keep the simple fallback label
+            pass
+
         return label
+
 
     def apply_doctor_filters(self):
         spec = self.spec_cmb.get()
         q = (self.search_in.get() or "").strip().lower()
 
+        # Invalidate any old labels so name edits show up immediately
+        self.doctor_labels.clear()
+
         filtered = []
         for d in self._all_doctors:
-            try:
-                name = (d.user.full_name or "").lower()
-                email = (d.user.email or "").lower()
-            except Exception:
-                name = email = ""
             d_spec = (getattr(d, "specialty", None) or "General")
+
+            # Try to get the doctor's display base (full_name -> email) even if d.user is detached
+            base = ""
+            try:
+                # Works if AppointmentService.list_doctors() eager-loaded User
+                base = (d.user.full_name or d.user.email or "").strip()
+            except Exception:
+                base = ""
+
+            if not base:
+                # Fallback: fetch the linked user by id (handles detached/lazy relationship)
+                try:
+                    with SessionLocal() as db:
+                        u = db.get(User, getattr(d, "user_id", None))
+                        if u:
+                            base = (u.full_name or u.email or "").strip()
+                except Exception:
+                    base = ""
+
+            # Filtering
+            name_lc = base.lower()
             if spec and spec != "All specialties" and d_spec != spec:
                 continue
-            if q and (q not in name and q not in email and q not in d_spec.lower()):
+            if q and (q not in name_lc and q not in d_spec.lower()):
                 continue
-            filtered.append(d)
+
+            filtered.append((d, base, d_spec))
 
         self.doctors.clear()
         self.doctor_labels.clear()
-        labels: list[str] = []
-        for d in filtered:
-            try:
-                label = f"Dr. {d.user.full_name or d.user.email} ({getattr(d, 'specialty', None) or 'General'})"
-            except Exception:
-                label = f"Doctor#{getattr(d, 'id', '?')} ({getattr(d, 'specialty', 'General')})"
-            labels.append(label)
-            self.doctors[label] = d.id
-            self.doctor_labels[d.id] = label
+
+        labels = []
+        for d, base, d_spec in filtered:
+            if not base:
+                # Last-resort fallback
+                base = f"{getattr(d, 'id', '?')}"
+            disp = f"Dr. {base} ({d_spec})"
+            labels.append(disp)
+            self.doctors[disp] = d.id
+            self.doctor_labels[d.id] = disp  # prime cache for resolver
 
         self.doctor_cmb["values"] = labels
-        cur_doc = self.doctor_cmb.get()
-        if cur_doc in labels:
-            self.doctor_cmb.set(cur_doc)
-        else:
-            self.doctor_cmb.set("")
-            if labels:
-                self.doctor_cmb.current(0)
+        cur = self.doctor_cmb.get()
+        self.doctor_cmb.set(cur if cur in labels else (labels[0] if labels else ""))
 
         self._set_time_slots([])
         if self.doctor_cmb.get():
             self._recompute_available_dates()
             self._maybe_jump_to_next_available_date()
             self.refresh_slots()
+
 
     def _on_doctor_change(self):
         self._set_time_slots([])
@@ -908,17 +932,11 @@ class PatientFrame(BaseFrame):
                 db.add(Notification(user_id=uid, title=title, body=body))
             db.commit()
 
-    # ---------- Appointments table ----------
     def refresh_appointments(self):
-        if not hasattr(self, "tree_ap"):
+        if not hasattr(self, "tree_ap") or not getattr(self, "patient", None):
             return
-        try:
-            for iid in self.tree_ap.get_children():
-                self.tree_ap.delete(iid)
-        except Exception:
-            return
-        if not getattr(self, "patient", None):
-            return
+        for iid in self.tree_ap.get_children():
+            self.tree_ap.delete(iid)
 
         try:
             with SessionLocal() as db:
@@ -929,26 +947,16 @@ class PatientFrame(BaseFrame):
                 ).all()
 
             for a in appts:
-                # When
                 when = getattr(a, "scheduled_for", None) or getattr(a, "datetime", None)
                 when_str = when.strftime(DATE_FMT) if when else ""
 
-                # Doctor label (robust to doctor_id being Doctor.id or User.id)
-                doc_id = getattr(a, "doctor_id", None)
-                if doc_id:
-                    try:
-                        doc_label = self._resolve_doctor_label(doc_id)
-                    except Exception:
-                        doc_label = f"Doctor#{doc_id}"
-                else:
-                    doc_label = "Unassigned"
+                # Robust label regardless of whether a.doctor_id is Doctor.id or User.id
+                doc_label = self._resolve_doctor_label(getattr(a, "doctor_id", None)) if getattr(a, "doctor_id", None) else "Unassigned"
 
-                # Other fields
                 reason = getattr(a, "reason", "") or ""
                 status_obj = getattr(a, "status", "")
                 status_val = getattr(status_obj, "value", status_obj) or ""
 
-                # Insert row
                 self.tree_ap.insert("", "end", values=(a.id, when_str, doc_label, reason, status_val))
         except Exception as e:
             print(f"[UI] Appointments error: {e}")
