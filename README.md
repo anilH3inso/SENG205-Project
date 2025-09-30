@@ -48,66 +48,82 @@ pip install -r care_portal/requirements.txt
 python -m care_portal.seed
 ```
 
-**This seeds** 
-Staff (DEFAULTS)
-role,email,password,full_name
-admin,admin@care.local,admin123,Admin User
-receptionist,reception@care.local,re123,Reception Desk
-pharmacist,pharma@care.local,pharma123,Pharmacy Desk
-support,support@care.local,support123,Support Desk
-finance,finance@care.local,finance123,Finance Desk
+# Care Portal Seed Accounts
 
-**Doctors**
-email,password,full_name,specialty
-dr1@care.local,doctor123,Meredith Grey,General
-dr2@care.local,doctor123,Derek Shepherd,Cardiology
-dr3@care.local,doctor123,Miranda Bailey,Pediatrics
-dr4@care.local,doctor123,Cristina Yang,Surgery
-dr5@care.local,doctor123,Arizona Robbins,Orthopedics
-dr6@care.local,doctor123,Alex Karev,Oncology
-dr7@care.local,doctor123,Amelia Shepherd,Neurology
-dr8@care.local,doctor123,Mark Sloan,Plastic Surgery
-dr9@care.local,doctor123,Izzie Stevens,Dermatology
-dr10@care.local,doctor123,George O'Malley,Emergency
-dr11@care.local,doctor123,April Kepner,Trauma
-dr12@care.local,doctor123,Jackson Avery,ENT
-dr13@care.local,doctor123,Callie Torres,Orthopedics
-dr14@care.local,doctor123,Teddy Altman,Cardiothoracic
-dr15@care.local,doctor123,Jo Wilson,General
-dr16@care.local,doctor123,Andrew DeLuca,General
+This file lists the default users that are seeded into the database for quick testing and demos.
 
-**Patients (1–30)**
-email,password,full_name
-pt01@care.local,patient123,John Test
-pt02@care.local,patient123,Jane Test
-pt03@care.local,patient123,Michael Test
-pt04@care.local,patient123,Emily Test
-pt05@care.local,patient123,Daniel Test
-pt06@care.local,patient123,Sophia Test
-pt07@care.local,patient123,Liam Test
-pt08@care.local,patient123,Olivia Test
-pt09@care.local,patient123,Jack Test
-pt10@care.local,patient123,Ava Test
-pt11@care.local,patient123,Noah Test
-pt12@care.local,patient123,Mia Test
-pt13@care.local,patient123,Ethan Test
-pt14@care.local,patient123,Isla Test
-pt15@care.local,patient123,Lucas Test
-pt16@care.local,patient123,Amelia Test
-pt17@care.local,patient123,Harper Test
-pt18@care.local,patient123,Elijah Test
-pt19@care.local,patient123,Chloe Test
-pt20@care.local,patient123,Grace Test
-pt21@care.local,patient123,Oliver Test
-pt22@care.local,patient123,Ruby Test
-pt23@care.local,patient123,Max Test
-pt24@care.local,patient123,Zoe Test
-pt25@care.local,patient123,Henry Test
-pt26@care.local,patient123,Emma Test
-pt27@care.local,patient123,Leo Test
-pt28@care.local,patient123,Scarlett Test
-pt29@care.local,patient123,Aria Test
-pt30@care.local,patient123,Mason Test
+---
+
+## Staff (DEFAULTS)
+
+| role         | email                | password  | full_name      |
+|--------------|----------------------|-----------|----------------|
+| admin        | admin@care.local     | admin123  | Admin User     |
+| receptionist | reception@care.local | re123     | Reception Desk |
+| pharmacist   | pharma@care.local    | pharma123 | Pharmacy Desk  |
+| support      | support@care.local   | support123| Support Desk   |
+| finance      | finance@care.local   | finance123| Finance Desk   |
+
+---
+
+## Doctors
+
+| email           | password  | full_name        | specialty          |
+|-----------------|-----------|------------------|--------------------|
+| dr1@care.local  | doctor123 | Meredith Grey    | General            |
+| dr2@care.local  | doctor123 | Derek Shepherd   | Cardiology         |
+| dr3@care.local  | doctor123 | Miranda Bailey   | Pediatrics         |
+| dr4@care.local  | doctor123 | Cristina Yang    | Surgery            |
+| dr5@care.local  | doctor123 | Arizona Robbins  | Orthopedics        |
+| dr6@care.local  | doctor123 | Alex Karev       | Oncology           |
+| dr7@care.local  | doctor123 | Amelia Shepherd  | Neurology          |
+| dr8@care.local  | doctor123 | Mark Sloan       | Plastic Surgery    |
+| dr9@care.local  | doctor123 | Izzie Stevens    | Dermatology        |
+| dr10@care.local | doctor123 | George O'Malley  | Emergency          |
+| dr11@care.local | doctor123 | April Kepner     | Trauma             |
+| dr12@care.local | doctor123 | Jackson Avery    | ENT                |
+| dr13@care.local | doctor123 | Callie Torres    | Orthopedics        |
+| dr14@care.local | doctor123 | Teddy Altman     | Cardiothoracic     |
+| dr15@care.local | doctor123 | Jo Wilson        | General            |
+| dr16@care.local | doctor123 | Andrew DeLuca    | General            |
+
+---
+
+## Patients (1–30)
+
+| email             | password   | full_name      |
+|-------------------|------------|----------------|
+| pt01@care.local   | patient123 | John Test      |
+| pt02@care.local   | patient123 | Jane Test      |
+| pt03@care.local   | patient123 | Michael Test   |
+| pt04@care.local   | patient123 | Emily Test     |
+| pt05@care.local   | patient123 | Daniel Test    |
+| pt06@care.local   | patient123 | Sophia Test    |
+| pt07@care.local   | patient123 | Liam Test      |
+| pt08@care.local   | patient123 | Olivia Test    |
+| pt09@care.local   | patient123 | Jack Test      |
+| pt10@care.local  | patient123 | Ava Test       |
+| pt11@care.local  | patient123 | Noah Test      |
+| pt12@care.local  | patient123 | Mia Test       |
+| pt13@care.local  | patient123 | Ethan Test     |
+| pt14@care.local  | patient123 | Isla Test      |
+| pt15@care.local  | patient123 | Lucas Test     |
+| pt16@care.local  | patient123 | Amelia Test    |
+| pt17@care.local  | patient123 | Harper Test    |
+| pt18@care.local  | patient123 | Elijah Test    |
+| pt19@care.local  | patient123 | Chloe Test     |
+| pt20@care.local  | patient123 | Grace Test     |
+| pt21@care.local  | patient123 | Oliver Test    |
+| pt22@care.local  | patient123 | Ruby Test      |
+| pt23@care.local  | patient123 | Max Test       |
+| pt24@care.local  | patient123 | Zoe Test       |
+| pt25@care.local  | patient123 | Henry Test     |
+| pt26@care.local  | patient123 | Emma Test      |
+| pt27@care.local  | patient123 | Leo Test       |
+| pt28@care.local  | patient123 | Scarlett Test  |
+| pt29@care.local  | patient123 | Aria Test      |
+| pt30@care.local  | patient123 | Mason Test     |
+
 
 ### 4️⃣ Run the App  
 ```bash
