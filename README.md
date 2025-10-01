@@ -5,7 +5,7 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green) 
 ![Tkinter](https://img.shields.io/badge/Tkinter-Desktop%20UI-orange)  
 
-> 🏥 **Enterprise-Grade Hospital Management System**  
+> 🏥 **Pakenham Hospital Management System**  
 > Built with Python, SQLAlchemy, and a local AI Chatbot (`tinyllama.gguf`) — designed for scalability, reliability, and production readiness.
 
 ---
